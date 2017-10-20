@@ -10,6 +10,19 @@
 //variável global - contador de vezes que o ENTER foi pressionado
 int qtd_linhas = 1;
 
+//Lê um caracter e retorna 1 caso seja um sinal da linguagem e 0 (zero), caso contrário
+int ehsinal(char c) {
+  int i = 0;
+
+  while (i < QTD_SINAIS) {
+    if (c == sinais[i].lexema[0])
+      return 1;
+    i++;
+  }
+
+  return 0;
+}
+
 //Função que realiza a cópia dos valores dos sinais no Token
 token copiaTokenSinal(char* sinal) {
   token t;
@@ -174,7 +187,7 @@ token analex(FILE *FD) {
             case 't':
             case 'r':
               estado = 29;
-              [l++] = '\\';
+              lexema[l++] = '\\';
               lexema[l++] = c;
               break;
           }
@@ -710,7 +723,7 @@ int main() {
   int c, i=0;
   token t;
 
-  FD = fopen("querover.c", "r");
+  FD = fopen("documento.txt", "r");
 
   if (FD == NULL) { //teste de abertura do arquivo
    printf ("Houve um erro ao abrir o arquivo.\n");

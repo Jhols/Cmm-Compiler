@@ -1,4 +1,4 @@
-#define QTD_SINAIS sizeof(sinais)/sizeof(token)+1
+﻿#define QTD_SINAIS sizeof(sinais)/sizeof(token)+1
 #define QTD_PR sizeof(PR)/sizeof(char*)
 #define QTD_CATEGORIAS sizeof(categorias)/sizeof(char*)
 
@@ -35,16 +35,3 @@ int qtd_ID = 0;
 
 char literais[100][100];
 int qtd_literais = 0;
-
-//Lê um caracter e retorna 1 caso seja um sinal da linguagem e 0 (zero), caso contrário
-int ehsinal(char c) {
-  int i = 0;
-
-  while (i < QTD_SINAIS) {
-    if (c == sinais[i].lexema[0])
-      return 1;
-    i++;
-  }
-
-  return 0;
-}
